@@ -1,14 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="refresh" content="0;url=xbetmulti://open/support/callback">
-    <script>
-        window.onload = function() {
-            window.location.href = "xbetmulti://open/support/callback";
-        };
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opening App...</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            text-align: center;
+        }
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            min-width: 200px;
+        }
+    </style>
 </head>
 <body>
-    <p>Opening app... If it doesn't open, make sure it is installed.</p>
+
+    <h2>Opening App...</h2>
+    <p>We are trying to open your app version automatically.</p>
+    <p>If it doesn't open, please select your specific version below:</p>
+    
+    <div class="btn-group">
+        <a href="xBetEg://open/support/callback" class="btn">Open EG Version</a>
+        <a href="xBetMulti://open/support/callback" class="btn">Open Multi Version</a>
+        <a href="xBetDz://open/support/callback" class="btn">Open ALG Version</a>
+        <a href="xBetMa://open/support/callback" class="btn">Open MOR Version</a>
+        <a href="xBetIrq://open/support/callback" class="btn">Open IQ Version</a>
+        <a href="xBetJo://open/support/callback" class="btn">Open JOR Version</a>
+        <a href="xBetTn://open/support/callback" class="btn">Open TN Version</a>
+        <a href="xBetSo://open/support/callback" class="btn">Open SOM Version</a>
+        <a href="xBetMr://open/support/callback" class="btn">Open MUR Version</a>
+        <a href="xBetSa://open/support/callback" class="btn">Open SA Version</a>
+        <a href="xBetKwQa://open/support/callback" class="btn">Open KW Version</a>
+    </div>
+
+    <script>
+        const schemes = [
+            "xBetEg://open/support/callback",
+            "xBetMulti://open/support/callback",
+            "xBetDz://open/support/callback",
+            "xBetMa://open/support/callback",
+            "xBetIrq://open/support/callback",
+            "xBetJo://open/support/callback",
+            "xBetTn://open/support/callback",
+            "xBetSo://open/support/callback",
+            "xBetMr://open/support/callback",
+            "xBetSa://open/support/callback",
+            "xBetKwQa://open/support/callback"
+        ];
+
+        window.onload = function() {
+            let delay = 0;
+
+            // Cycle through each app scheme with a small delay.
+            // If an app opens, the browser backgrounds and the cycle effectively pauses.
+            schemes.forEach((scheme) => {
+                setTimeout(() => {
+                    window.location.href = scheme;
+                }, delay);
+                delay += 500; // Wait 500ms before trying the next scheme
+            });
+        };
+    </script>
 </body>
 </html>
